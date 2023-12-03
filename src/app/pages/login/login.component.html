@@ -36,9 +36,24 @@
             <i class="login-icon mt-5">[Login Icon]</i>
             <h2 class="mt-5">Login</h2>
             <form class="form-group">
-                <input type="text" class="form-control mt-5" placeholder="Username">
-                <input type="password" class="form-control mt-3" placeholder="Password">
-                <button type="submit" class="btn btn-primary mt-5">Login</button>
+
+                <div *ngIf="loginFailureText" class="alert alert-danger d-flex align-items-center alert-dismissible fade show" role="alert">
+                    <i class="bi bi-exclamation-triangle-fill me-3"></i>
+                    <div>
+                      {{loginFailureText}}
+                    </div>
+                  </div>
+
+                <input type="email" #email class="form-control mt-5" placeholder="Email">
+                <input type="current-password" #password class="form-control mt-3" placeholder="Password">
+
+                <button *ngIf="!loading" (click)="onLogin(email.value, password.value)" type="button" class="btn btn-primary mt-5">Login</button>
+
+                <button *ngIf="loading" class="btn btn-primary mt-5" type="button" disabled>
+                    <span class="spinner-grow spinner-grow-sm" aria-hidden="true"></span>
+                    <span role="status">Loading...</span>
+                  </button>
+
             </form>
         </div>
 
@@ -48,11 +63,16 @@
             <h2 class="mt-5">Signup</h2>
             <form class="form-group">
 
-                <input type="text" class="form-control mt-5" placeholder="Username">
+                <div *ngIf="authFailureText" class="alert alert-danger d-flex align-items-center alert-dismissible fade show" role="alert">
+                    <i class="bi bi-exclamation-triangle-fill me-3"></i>
+                    <div>
+                      {{authFailureText}}
+                    </div>
+                  </div>
 
-                <input type="email" class="form-control mt-3" placeholder="Email">
+                <input type="email" #email class="form-control mt-3" placeholder="Email">
 
-                <input type="password" class="form-control mt-3" placeholder="Password">
+                <input type="current-password" #password class="form-control mt-3" placeholder="Password">
 
                 <div class="form-check mt-3">
                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
@@ -61,7 +81,12 @@
                     </label>
                   </div>
 
-                <button type="submit" class="btn btn-primary mt-5">Signup</button>
+                <button *ngIf="!loading" (click)="onSignup(email.value, password.value)" type="button" class="btn btn-primary mt-5">Signups</button>
+
+                <button *ngIf="loading" class="btn btn-primary mt-5" type="button" disabled>
+                    <span class="spinner-grow spinner-grow-sm" aria-hidden="true"></span>
+                    <span role="status">Loading...</span>
+                  </button>
 
             </form>
         </div>
