@@ -1,1 +1,58 @@
-/* You can add global styles to this file, and also import other style files */
+/* styles.css */
+
+/* Layout Container */
+.app-layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header (Navbar) */
+.app-header {
+    /* Adjust styles as per design requirements */
+    background-color: #f8f9fa;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Main Content Container */
+.app-container {
+    flex-grow: 1; /* Takes the remaining space */
+    padding: 15px;
+    margin: 0 auto;
+    max-width: 1200px; /* Adjust as needed */
+    box-sizing: border-box;
+}
+
+/* Footer */
+.app-footer {
+    /* Adjust styles as per design requirements */
+    background-color: #f8f9fa;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1200px) {
+    .app-container {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .app-header, .app-footer {
+        padding: 8px;
+    }
+    .app-container {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .app-header, .app-footer {
+        padding: 5px;
+    }
+    .app-container {
+        padding: 5px;
+    }
+}
