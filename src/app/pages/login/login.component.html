@@ -1,0 +1,70 @@
+<div class="login-page topStuff">
+
+    <div class="carousel-container">
+
+        <div id="carouselExampleFade" class="carousel slide carousel-fade">
+            <div class="carousel-inner">
+    <div class="carousel-item active" *ngFor="let image of carouselImages">
+        <img [src]="image.src" class="d-block w-100" [alt]="image.alt">
+    </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+
+    </div>
+
+    <!-- <div class="carousel-item active" *ngFor="let image of carouselImages">
+        <img [src]="image.src" class="d-block w-100" [alt]="image.alt">
+    </div> -->
+
+    <div class="form-card">
+
+        <div class="tab">
+            <button (click)="setActiveTab('login')" [ngClass]="{'active': activeTab === 'login'}">Login</button>
+            <button (click)="setActiveTab('signup')" [ngClass]="{'active': activeTab === 'signup'}">Signup</button>
+        </div>
+
+        <!-- Login Form -->
+        <div *ngIf="activeTab === 'login'" class="form-content">
+            <i class="login-icon mt-5">[Login Icon]</i>
+            <h2 class="mt-5">Login</h2>
+            <form class="form-group">
+                <input type="text" class="form-control mt-5" placeholder="Username">
+                <input type="password" class="form-control mt-3" placeholder="Password">
+                <button type="submit" class="btn btn-primary mt-5">Login</button>
+            </form>
+        </div>
+
+        <!-- Signup Form -->
+        <div *ngIf="activeTab === 'signup'" class="form-content">
+            <i class="signup-icon mt-5">[Signup Icon]</i>
+            <h2 class="mt-5">Signup</h2>
+            <form class="form-group">
+
+                <input type="text" class="form-control mt-5" placeholder="Username">
+
+                <input type="email" class="form-control mt-3" placeholder="Email">
+
+                <input type="password" class="form-control mt-3" placeholder="Password">
+
+                <div class="form-check mt-3">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      I agree with the terms of use and privacy
+                    </label>
+                  </div>
+
+                <button type="submit" class="btn btn-primary mt-5">Signup</button>
+
+            </form>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,30 @@
+.app-footer {
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.footer-social-media {
+    margin-bottom: 10px;
+}
+
+.footer-social-media a {
+    margin: 0 10px;
+    color: white;
+    text-decoration: none;
+}
+
+.footer-copy {
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .footer-social-media a {
+        display: block;
+        margin: 5px auto; 
+    }
+}
