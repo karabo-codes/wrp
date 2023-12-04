@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Constants } from 'src/app/common/Constants';
 import { AuthService } from 'src/app/services/auth.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -19,9 +22,15 @@ export class LoginComponent implements OnInit {
 
   setActiveTab(tab: string) {
     this.activeTab = tab;
+    this.authFailureText = undefined;
+    this.loginFailureText = undefined;
   }
 
-  constructor(private authService: AuthService) { }
+  constructor(
+    private authService: AuthService,
+    private userService: UserService,
+    private router: Router
+    ) { }
 
   ngOnInit(): void {
     // this.onSignup('haha', 'lol');
@@ -47,6 +56,10 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(email, password).then(result => {
       this.loading = false;
+      this.userService.setUser(result);
+
+      this.router.navigate([Constants.SLASH.concat(Constants.WIP_PAGE_ROUTE)]);
+
       console.log('Login successful', result);
     }).catch(error => {
       this.loading = false;

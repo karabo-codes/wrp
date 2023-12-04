@@ -1,0 +1,48 @@
+.under-construction-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+}
+
+.message {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.message h1 {
+    margin: 0;
+    font-size: 2em;
+    padding-bottom: 20px;
+}
+
+.social-media-links {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.social-media-links a {
+    text-decoration: none;
+    color: #000;
+
+}
+
+@media (max-width: 768px) {
+    .message h1 {
+        font-size: 1.5em;
+    }
+}
+
+.medium-icons {
+    font-size: 24px;
+}
